@@ -17,12 +17,14 @@
             </tr>
             <tr ng-repeat="prod in catCtrl.category.products">
                 <td>{{prod.id}}</td>
-                <td><a ui-sref="root.categories.singleCategoryView.productInCategory({categoryId: '{{catCtrl.category.id}}', productID: '{{prod.id}}'})">See more</a></td>
+                <td>
+                    <a ui-sref="root.categories.singleCategoryView.productInCategory({categoryId: '{{catCtrl.category.id}}', productID: '{{prod.id}}'})">See
+                        more</a></td>
                 <td><a ui-sref="root.productView({productID: '{{prod.id}}'})">Product page</a></td>
                 <td>{{prod.info.name}}</td>
                 <td>{{prod.info.description}}</td>
             </tr>
         </table>
     </div>
-    <div ui-view="productDetailsUI"> Select a product please </div>
+    <div class="lc" ui-view="productDetailsUI"> productDetailsUI</div>
 </div>
