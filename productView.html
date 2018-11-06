@@ -1,6 +1,42 @@
 <div>
-    Product!!! view TODO.
-
-    {{prodCtrl.productID}}
-    Nazwa: {{prodCtrl.product.info.name}}
+    <h2 class="text-center" style="margin: 30px;">{{prodCtrl.productID}}
+        Nazwa: {{prodCtrl.product.info.name}}</h2>
 </div>
+<div id="categoryView" class="row">
+    <div class="col-md-2 categoryTree">
+        <h4>Kategorie:</h4>
+        <ul>
+            <li>
+                Mini Frezarki
+                <ul>
+                    <li>produkt 1</li>
+                    <li>produkt 2</li>
+                    <li>produkt 3</li>
+                </ul>
+            </li>
+            <li>Lasery CNC</li>
+            <li>Aksesoria</li>
+        </ul>
+        <div>TODO: Drzewo nawigacji po categoriach</div>
+    </div>
+    <div class=" col-md-4 ">
+        <img src="/img/frezarkab.jpeg" style=""/>
+    </div>
+    <div class="col-md-4" style="margin: 60px">
+        <h5>Frezarka CNC 3040 3D/4D 500W + Sonda + Wyłączniki Krańcowe</h5>
+        <h6>Towar nowy - dostępny od ręki.</h6>
+        <p>Podana cena jest ceną brutto zawierającą 23% VAT
+            Co wyróżnia naszą frezarkę:
+            Wrzeciono 500 W ER11
+            Pole robocze 400x300x75
+            System Auto-Checking - Sonda do automatycznego ustawiana pozycji "0" w osi "Z"
+            Wyłączniki krańcowe na każdym końcu osi ( 2 szt. na oś)</p>
+    </div>
+</div>
+
+        <div class=" col-md-4 ">
+            Product!!! view TODO.
+
+            {{prodCtrl.productID}}
+            Nazwa: {{prodCtrl.product.info.name}}
+        </div>

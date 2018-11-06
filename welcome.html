@@ -1,6 +1,83 @@
-<div class="row">
+<div id="grad" class="row" >
     <div class="col-md-12">
-        <h1>Welcome</h1>
-        <p>TODO Simple Welcome page with full page view</p>
+        <br>
+        <br>
+        <h1 class="welcome text-center">PRECYZJA</h1>
+        <h2 class="text-center text-white">TO NASZA SPECJALNOSC</h2>
+        <br>
+        <br>
+        <div class="col-5 offset-5">
+            <a ui-sref="root.info.products">
+            <input ng-click="goToBottom('')" class="btn  btn-rounded"  role="button" type="submit" value="CATEGORIES"/>
+            </a>
+        </div>
+        <img style="display: block; margin: 0 auto"  src="/img/freazarka-03.png" align="center" />
+    </div>
+</div>
+<img style="display: block; margin: 0 auto"  src="/img/logo_zielone.png" align="center" />
+<div  class="row">
+    <div id="about" class=" col-sm-12">
+        <h1 class="text-center">ABOUT US</h1>
+        <hr class="my-12">
+    </div>
+    <div class="name col-sm-4 text-center ">
+        <h5 class=" name text-dark">PRODUKUJEMY I SPRZEDAJEMY</h5>
+        <p>wysokiej jakosci frezarki</p>
+        <p>przeznaczone do branzy jubiler-</p>
+        <p>skiej i nie tylko.</p>
+    </div>
+    <div class="name col-sm-4 text-center">
+        <h5 class="name text-dark">ZAPEWNIAMY WYSOKIEJ</h5>
+        <h5 class="name text-dark">JAKOSCI FREZAREK</h5>
+        <p>przeznaczone do frezowania,</p>
+        <p>wycinania i grawerowania.</p>
+    </div>
+    <div class="name col-sm-4 text-center">
+        <h5 class="name text-dark">OFERUJWMY SPECJALISTYCZNE</h5>
+        <h5 class="name text-dark">NARZEDZIA</h5>
+        <p>ulatwiajace i przespieszajace</p>
+        <p>prace.</p>
+    </div>
+</div>
+<img style="display: block; margin: 0 auto"  src="/img/element_ABOUT.png" align="center" />
+
+<div class="row" id="services">
+    <div class=" col-6 ">
+        <img src="/img/Fota_services-04.jpg" style="display: block; margin:0 auto; width:500px height:500px;"/>
+    </div>
+    <div class=" col-6 ">
+        <img src="/img/zdjecie-04.jpg" style="display: block;  margin:0 auto; height:500px;"/>
+    </div>
+</div>
+<img style="display: block; margin: 0 auto"  src="/img/logo_zielone.png" align="center" />
+
+<div class=" text-center">
+    <h1 class="service text-center">SERVICES</h1>
+    <hr class="my-12">
+    <br>
+    <h5>Produkujemy i sprzedajemy wysokiej jakosci frezarki przeznaczone do branzy</h5>
+    <h5>jubilerskiej i nie tylko. Oferujemy specjalistyczne narzedzia ulatwiajace</h5>
+    <h5>i przyspieszajace prace.</h5><br>
+    <br>
+    <h5>Produkujemy i sprzedajemy wysokiej jakosci frezarki przeznaczone do branzy</h5>
+    <h5>jubilerskiej i nie tylko. Oferujemy specjalistyczne narzedzia ulatwiajace</h5>
+    <h5>i przyspieszajace prace.</h5><br>
+</div>
+<img style="display: block; margin: 0 auto"  src="/img/logo_zielone.png" align="center" />
+<div class="row">
+    <div id="products" class=" col-sm-12" >
+        <h1 class="text-center ">CATEGORIES</h1>
+        <hr class="my-12">
+    </div>
+    <div class="col-hov col-md-4" ng-repeat="rootCat in app.categoryTree.childrens">
+        <div class="product  text-center">
+            <div ui-sref="root.categories.singleCategoryView({categoryId: '{{rootCat.value.id}}'})" >
+                <div class="card-body">
+                    <h5 class="card-title text-white">{{rootCat.value.info.name}}</h5>
+                    <p class="card-text text-white">{{rootCat.value.info.description}}</p>
+                </div>
+            <img class="card-img-top"  src="/img/freazarka-03.png" alt="Categoria">
+            </div>
+        </div>
     </div>
 </div>

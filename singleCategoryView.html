@@ -1,30 +1,81 @@
-<div>
-    <h1>Simple category</h1>
-    <div>TODO: Drzewo nawigacji po categoriach</div>
-    <div>
-        id: {{catCtrl.category.id}}
-        name: {{catCtrl.category.info.name}}
-        desc: {{catCtrl.category.info.description}}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<div id="categoryView" class="row" style="margin:30px">
+    <div class="col-md-2 categoryTree">
+        <h5>Kategorie:</h5>
+        <ul>
+            <li>kategoria1</li>
+            <li>kategoria1</li>
+            <li>kategoria1</li>
+            <li>kategoria1</li>
+        </ul>
+        <div>TODO: Drzewo nawigacji po categoriach</div>
     </div>
-    <div>
-        <h2>Producty</h2>
-        <table>
-            <tr>
-                <th>productId</th>
-                <th>link</th>
-                <th>name</th>
-                <th>description</th>
-            </tr>
-            <tr ng-repeat="prod in catCtrl.category.products">
-                <td>{{prod.id}}</td>
-                <td>
+    <div class="col-md-10">
+        <h1>{{catCtrl.category.info.name}}</h1>
+        <p>{{catCtrl.category.info.description}}</p>
+        <p>
+            <a ng-click="catCtrl.showTable()" ><img holder="holder.js/20x20?theme=social"></a>
+            <a ng-click="catCtrl.showImages()"><img holder="holder.js/20x20"></a>
+            <a ng-click="catCtrl.showText()"><img holder="holder.js/20x20?theme=social"></a>
+            <a ng-click="catCtrl.showStandarts()"><img holder="holder.js/20x20"></a>
+        </p>
+        <p>
+            <a ng-click="catCtrl.showTable()"><i class="fas fa-grip-vertical" style="size: 5x;"></i></a>
+            <a ng-click="catCtrl.showImages()"><i class="fas fa-bars"></i></a>
+            <a ng-click="catCtrl.showText()" class="fas fa-align-justify"></a>
+            <a ng-click="catCtrl.showStandarts()"><i class="fas fa-grip-horizontal"></i></a>
+            </p>
+        <div class="lc" ui-view="productDetailsUI"> productDetailsUI</div>
+        <div ng-show="catCtrl.toDisplay == 'table'">
+            <table>
+                <tr>
+                    <th>productId</th>
+                    <th>link</th>
+                    <th>name</th>
+                    <th>description</th>
+                </tr>
+                <tr ng-repeat="prod in catCtrl.category.products">
+                    <td>{{prod.id}}</td>
+                    <td>
+                        <a ui-sref="root.categories.singleCategoryView.productInCategory({categoryId: '{{catCtrl.category.id}}', productID: '{{prod.id}}'})">See
+                            more</a></td>
+                    <td><a ui-sref="root.productView({productID: '{{prod.id}}'})">Product page</a></td>
+                    <td>{{prod.info.name}}</td>
+                    <td>{{prod.info.description}}</td>
+                </tr>
+            </table>
+        </div>
+        <div ng-show="catCtrl.toDisplay == 'images'">
+            <div class="card text-center" ng-repeat="prod in catCtrl.category.products">
+                <img class="card-img-top" holder="holder.js/180x100?theme=social" alt="Pruct">
+                <div class="card-body">
+                    <h5 class="card-title">{{prod.info.name}}</h5>
+                    <p class="card-text">{{prod.info.description}}</p>
                     <a ui-sref="root.categories.singleCategoryView.productInCategory({categoryId: '{{catCtrl.category.id}}', productID: '{{prod.id}}'})">See
                         more</a></td>
-                <td><a ui-sref="root.productView({productID: '{{prod.id}}'})">Product page</a></td>
-                <td>{{prod.info.name}}</td>
-                <td>{{prod.info.description}}</td>
-            </tr>
-        </table>
-    </div>
-    <div class="lc" ui-view="productDetailsUI"> productDetailsUI</div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="catCtrl.toDisplay == 'text'">
+            <div class="card text-center" ng-repeat="prod in catCtrl.category.products">
+                <div class="card-body">
+                    <h5 class="card-title">{{prod.info.name}}</h5>
+                    <p class="card-text">{{prod.info.description}}</p>
+                    <a ui-sref="root.categories.singleCategoryView.productInCategory({categoryId: '{{catCtrl.category.id}}', productID: '{{prod.id}}'})">See
+                        more</a></td>
+                </div>
+            </div>
+        </div>
+        <div ng-show="catCtrl.toDisplay == 'standarts'">
+            <div class="card text-center" ng-repeat="prod in catCtrl.category.products">
+                <div class="card-body">
+                    <h5 class="card-title">{{prod.info.name}}</h5>
+                    <p class="card-text">{{prod.info.description}}</p>
+                    </div>
+            </div>
+        </div>
 </div>
+</div>
+
+
+
